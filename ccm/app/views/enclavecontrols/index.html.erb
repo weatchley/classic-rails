@@ -1,0 +1,57 @@
+<h1>Listing enclavecontrols</h1>
+
+<table>
+  <tr valign=bottom>
+    <th>Enclave /<br>
+    Year /<br>
+    Qtr</th>
+    <th>Control /<br>
+    RMF /<br>
+    SSP Status</th>
+    <th>SSP Description</th>
+    <th>Deviation /<br>
+    Test Method</th>
+    <th>Test Procedure</th>
+    <!--th>Planned<br>Test Date</th>
+    <th>Scheduled<br>Test Year</th>
+    <th>Actual<br>Test Date</th>
+    <th>Test<br>Result</th>
+    <th>Test<br>Result<br>Description</th>
+    <th>Assessor Name</th>
+    <th>C&A Doc</th>
+    <th>Control Reference</th-->
+    <th></th>
+  </tr>
+
+<% @enclavecontrols.each do |enclavecontrol| %>
+  <tr valign=top>
+    <td><%= enclavecontrol.enclave.Name %> /<br>
+    <%= enclavecontrol.enclaveYear %> /<br>
+    <%= enclavecontrol.enclavequarter.enclaveQuarter %></td>
+    <td><%= enclavecontrol.cybercontrol.controlNameNumber %> /<br>
+    <%= enclavecontrol.RMF %> /<br>
+    <%= enclavecontrol.SSPImplementationStatus %></td>
+    <% temp = ((enclavecontrol.SSPImplementationDescription != nil) ? enclavecontrol.SSPImplementationDescription : " ") %>
+    <td><%= raw colapsestring("lefirst#{enclavecontrol.id}", temp.gsub(/\n/,"<br>\n"), 200, false, true) %></td>
+    <td><%= ((enclavecontrol.deviationIdentifier == '1') ? "True" : "False") %> /<br>
+    <%= enclavecontrol.testMethod %></td>
+    <% temp = ((enclavecontrol.testProcedure != nil) ? enclavecontrol.testProcedure : " ") %>
+    <td><%= raw colapsestring("lesecond#{enclavecontrol.id}", temp.gsub(/\n/,"<br>\n"), 200, false, true) %></td>
+    <!--td><-%= enclavecontrol.plannedTestDate %></td>
+    <td><-%= enclavecontrol.scheduledTestYear %></td>
+    <td><-%= enclavecontrol.actualTestDate %></td>
+    <td><-%= enclavecontrol.testResult %></td>
+    <td><-%= enclavecontrol.testResultDescription %></td>
+    <td><-%= enclavecontrol.assessorName %></td>
+    <td><-%= enclavecontrol.cAndADoc %></td>
+    <td><-%= enclavecontrol.controlReference %></td-->
+    <td align=center><%= link_to 'Show', enclavecontrol %><br>
+    <%= link_to 'Edit', edit_enclavecontrol_path(enclavecontrol) if current_user.operator? %><br>
+    <%= link_to 'Destroy', enclavecontrol, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Enclavecontrol', new_enclavecontrol_path %>

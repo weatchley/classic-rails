@@ -1,0 +1,33 @@
+<%= form_for(@enclave) do |f| %>
+  <% if @enclave.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@enclave.errors.count, "error") %> prohibited this enclave from being saved:</h2>
+
+      <ul>
+      <% @enclave.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :Name %><br />
+    <%= f.text_field :Name %>
+  </div>
+  <div class="field">
+    <%= f.label :long_name %><br />
+    <%= f.text_field :long_name %>
+  </div>
+  <div class="field">
+    <%= f.label :sort_order %><br />
+    <%= f.text_field :sort_order %>
+  </div>
+  <div class="field">
+    <%= f.label :active %><br />
+    <%= f.check_box :active %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

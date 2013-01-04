@@ -1,0 +1,111 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Enclave:</b>
+  <%= @enclavecontrol.enclave_id %>
+</p>
+
+<p>
+  <b>Enclaveyear:</b>
+  <%= @enclavecontrol.enclaveYear %>
+</p>
+
+<p>
+  <b>ControlID:</b>
+  <%= @enclavecontrol.cybercontrol_id %>
+</p>
+
+<p>
+  <b>RMF:</b>
+  <%= @enclavecontrol.RMF %>
+</p>
+
+<p>
+  <b>SSPImplementationStatus:</b>
+  <%= @enclavecontrol.SSPImplementationStatus %>
+</p>
+
+<p>
+  <b>SSPImplementationDescription:</b>
+  <%= @enclavecontrol.SSPImplementationDescription %>
+</p>
+
+<p>
+  <b>ImplementingDocumentationOrArticfacts:</b>
+  <%= @enclavecontrol.implementingDocumentationOrArticfacts %>
+</p>
+
+<p>
+  <b>DeviationIdentifier:</b>
+  <%= @enclavecontrol.deviationIdentifier %>
+</p>
+
+<p>
+  <b>TestMethod:</b>
+  <%= @enclavecontrol.testMethod %>
+</p>
+
+<p>
+  <b>TestProcedure:</b>
+  <%= @enclavecontrol.testProcedure %>
+</p>
+
+<p>
+  <b>PlannedTestDate:</b>
+  <%= @enclavecontrol.plannedTestDate %>
+</p>
+
+<p>
+  <b>ScheduledTestYear:</b>
+  <%= @enclavecontrol.scheduledTestYear %>
+</p>
+
+<p>
+  <b>ActualTestDate:</b>
+  <%= @enclavecontrol.actualTestDate %>
+</p>
+
+<p>
+  <b>TestResult:</b>
+  <%= @enclavecontrol.testResult %>
+</p>
+
+<p>
+  <b>TestResultDescription:</b>
+  <%= @enclavecontrol.testResultDescription %>
+</p>
+
+<p>
+  <b>AssessorName:</b>
+  <%= @enclavecontrol.assessorName %>
+</p>
+
+<p>
+  <b>C and A Doc:</b>
+  <%= @enclavecontrol.cAndADoc %>
+</p>
+
+<p>
+  <b>ControlReference:</b>
+  <%= @enclavecontrol.controlReference %>
+</p>
+
+<p>
+  <b>EnclaveQuarters:</b>
+  <%= @enclavecontrol.enclavequarter_id %>
+</p>
+
+<p>
+  <b>Created At:</b>
+  <%= @enclavecontrol.created_at %>
+</p>
+
+<p>
+  <b>Updated At:</b>
+  <%= @enclavecontrol.updated_at %>
+</p>
+
+
+<%= link_to 'Edit', edit_enclavecontrol_path(@enclavecontrol) if current_user.operator? %> | 
+<%= link_to 'Back', "/dashboard/show/#{@enclavecontrol.cybercontrol.controlFamilyCode}/#{@enclavecontrol.cybercontrol.id}/#{@enclavecontrol.id}" %>
+<!--%= link_to 'Back', enclavecontrols_path %-->

@@ -1,0 +1,10 @@
+<table>
+<tr valign=bottom><th>Controls</th><th>Tested /<br>Auto</th><th>Open /<br>Partial</th><th>Due /<br>Late</th><th>Not<br>Sched</th><th>Month /<br>Duration</th><th>Total</th></tr>
+<tr valign=top><td>Critical</td><td><%= @metricValues.cagtested %> /<br><%= @metricValues.cagauto %></td><td><%= @metricValues.cagopen %> /<br><%= @metricValues.cagpartial %></td>
+    <td><%= @metricValues.cagdue %>/<br><%= @metricValues.caglate %></td><td><%= @metricValues.cagnotscheduled %></td>
+    <td><%= @metricValues.cagcyclemonth %> /<br><%= @metricValues.cagcycleduration %></td><td><%= @metricValues.cagtotal %></td></tr>
+<tr valign=top><td>MAB</td><td><%= @metricValues.mabtested %> /<br><%= @metricValues.mabauto %></td><td><%= @metricValues.mabopen %> /<br><%= @metricValues.mabpartial %></td>
+    <td><%= @metricValues.mabdue %>/<br><%= @metricValues.mablate %></td><td><%= @metricValues.mabnotscheduled %></td>
+    <td><%= @metricValues.mabcyclemonth %> /<br><%= @metricValues.mabcycleduration %></td><td><%= @metricValues.mabtotal %></td></tr>
+</table>
+<hr>

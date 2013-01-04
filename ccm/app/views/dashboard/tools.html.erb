@@ -1,0 +1,66 @@
+<h1>Tools</h1>
+<br>
+<ul>
+<li>New Quarter<br>
+<form name=tools1>&nbsp;&nbsp;&nbsp;&nbsp;Year <input type=text name=year size=4 maxlength=4> &nbsp; &nbsp; Quarter: <input type=text name=quarter size=1 maxlength=1></form>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href=javascript:doSubmit()>Create new quarter</a><br>
+</li>
+<% begin %>
+<br><hr width=25%><br><li>Process Controls SpreadSheet (Apendix A) import
+<form name=tools2>&nbsp;&nbsp;&nbsp;&nbsp;<select name=contrid size=10 ONCHANGE="selectExcelFile(this.options[this.selectedIndex].value);">
+<% @fileList.each do |filepath| %>
+    <option value="<%= filepath %>"><%= filepath %></option>
+<% end %>
+</select></form>
+
+</li>
+<% end if current_user.super? %>
+
+<br><hr width=25%><br><li><a href=/dashboard/generateappendixa>Generate Appendix A spreadsheet</a>
+</li>
+</ul>
+
+<script type='text/javascript'>
+
+  // function that returns true if a string contains only numbers
+  function isnumeric(s) {
+      if (s.length == 0) return false;
+      for(var i = 0; i < s.length; i++) {
+          var c = s.charAt(i);
+          if ((c < '0') || (c > '9')) return false;
+      }
+
+      return true;
+  }
+
+  function checkYear(item) {
+    if (isnumeric(item.value) && item.value >2000 && item.value < 2200) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  function checkQuarter(item) {
+    if (isnumeric(item.value) && item.value < 5) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+  
+  function doSubmit() {
+    if (checkYear(document.tools1.year) && checkQuarter(document.tools1.quarter)) {
+      window.location.href="/dashboard/populate/" + document.tools1.year.value + "/" + document.tools1.quarter.value;
+      //alert('got here');
+    } else {
+      alert('Year and Quarter must be entered as valid numerics');
+    }
+  }
+  
+  function selectExcelFile(item) {
+    window.location.href="/dashboard/processexcelfile/" + item;
+    //alert('got here');
+  }
+
+</script>

@@ -1,0 +1,20 @@
+%ul.navlinks
+  %li
+    = link_to 'Home Page', '/dashboard/show'
+  %li
+    = link_to 'Help', '/help/ConitnuousMonitoringHelp.pdf', {:target => '_blank'}
+  %li
+    = link_to 'Logout', {:controller => 'devise/sessions', :action => 'destroy'}
+  %li.list_divider
+    = link_to 'Generate Appendix A spreadsheet', '/dashboard/generateappendixa' if current_user.admin?
+  %li
+    = link_to 'Configuration Values', '/configvalues' if current_user.admin?
+  %li
+    = link_to 'Enclaves', '/enclaves' if current_user.admin?
+  %li
+    = link_to 'Users', people_path if current_user.admin?
+  %li
+    = link_to 'Tools', '/dashboard/tools' if current_user.admin?
+  %li
+    = link_to '(dev home)', '/home/index' if current_user.super?
+

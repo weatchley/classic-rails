@@ -1,0 +1,2 @@
+module EnclavequartersHelper
+end

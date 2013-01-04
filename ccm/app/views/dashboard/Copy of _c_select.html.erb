@@ -1,0 +1,7 @@
+<h1><u>Control Id</u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h1>
+<input type=hidden name=ctrlid value="<%= @cid %>">
+<% @contrls.each do |ctr| %>
+    <input type=radio name=contrid id="c<%= ctr.id %>" value="<%= ctr.id %>"<%= ((@cid.to_i==ctr.id) ? " checked" : "") %> onclick=window.location.href="/dashboard/show/<%= @cfam %>/<%= ctr.id %>">
+    <label for="c<%= ctr.id %>"><%= ctr.controlNameNumber %></label><br>
+<% end %>
+

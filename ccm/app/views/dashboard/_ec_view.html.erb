@@ -1,0 +1,14 @@
+<% if @ecqid != "0" %>
+  <br><hr>
+  <h1><u>Enclave Control</u> &nbsp;&nbsp;&nbsp; <%= link_to 'Edit', edit_enclavecontrol_path(@ecqid) if current_user.operator? %></h1>
+  <strong>RMF:</strong> <%= ((@ecq.RMF) ? "True" : "False") %>, <strong>Status:</strong> <%= @ecq.SSPImplementationStatus %><br><br>
+  <strong>Implementation Description:</strong> <br><%= raw ((@ecq.SSPImplementationDescription != nil) ? colapsestring("cffirst", @ecq.SSPImplementationDescription.gsub(/\n/,"<br>\n"), 200, false, true) : "") %><br><br>
+  <strong>Implementation Documents:</strong> <%= @ecq.implementingDocumentationOrArticfacts %><br><br>
+  <strong>Test Method:</strong> <%= @ecq.testMethod %>, <strong>Test Procedure:</strong> <%= @ecq.testProcedure %><br><br>
+  <strong>Planned Test Date & Year:</strong> <%= @ecq.plannedTestDate %> <%= ((@ecq.plannedTestDate != nil && @ecq.scheduledTestYear != nil) ? "&" : "") %> <%= @ecq.scheduledTestYear %><br><br>
+  <strong>Actual Test Date & Result:</strong> <%= @ecq.actualTestDate %> <%= @ecq.testResult %> <br><br> 
+  <strong>Test Result Description:</strong><%= raw ((@ecq.testResultDescription != nil) ? "<br>" + colapsestring("cffirst", @ecq.testResultDescription.gsub(/\n/,"<br>\n"), 200, false, true) : "") %><br><br>
+  <strong>Assessor Name:</strong> <%= @ecq.assessorName %><br><br>
+  <strong>C & A Doc:</strong> <%= @ecq.cAndADoc %><br><br>
+  <strong>Control Reference:</strong> <%= @ecq.controlReference %><br>
+<% end %>

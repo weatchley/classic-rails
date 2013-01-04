@@ -1,0 +1,14 @@
+<!--h1><u>Control Family</u>&nbsp;&nbsp;</h1-->
+<input type=hidden name=cfcode value="<%= @cfam %>">
+<select name=confam size=10 ONCHANGE="selectControlFamily(this.options[this.selectedIndex].value);">
+<% @contrFams.each do |cf| %>
+    <option value="<%= cf.controlFamilyCode %>"<%= ((@cfam==cf.controlFamilyCode) ? " SELECTED " : "") %> title="<%= cf.controlName %>"><%= cf.controlFamilyCode %>: <%= cf.controlName.slice(0..30) %><%= ((cf.controlName.length > 30) ? "..." : "") %></option>
+<% end %>
+</select>
+<script type='text/javascript'>
+
+function selectControlFamily(id) {
+    window.location.href="/dashboard/show/" + id;
+}
+</script>
+

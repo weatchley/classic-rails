@@ -1,0 +1,8 @@
+<% if @cid != "0" %>
+  <h1><u>Enclave/Control/Quarter</u></h1>
+  <input type=hidden name=ecid value="<%= @ecqid %>">
+  <% @enControls.each do |ec| %>
+      <input type=radio name=encntr value="<%= ec.id %>" id="encntr<%= ec.id %>"<%= ((@ecqid.to_i==ec.id) ? " checked" : "") %> onclick=window.location.href="/dashboard/show/<%= @cfam %>/<%= @cid %>/<%= ec.id %>">
+      <label for="encntr<%= ec.id %>"><%= ec.enclave.Name %> - <%= ec.enclavequarter.quarterName %> Qtr / <%= ec.enclavequarter.enclaveYear %></label><br>
+  <% end %>
+<% end %>

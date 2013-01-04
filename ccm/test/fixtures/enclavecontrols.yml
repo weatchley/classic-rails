@@ -1,0 +1,39 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  enclave_id: 
+  enclaveYear: 
+  cybercontrol_id: 
+  SSPImplementationStatus: MyString
+  SSPImplementationDescription: MyText
+  implementingDocumentationOrArticfacts: MyString
+  deviationIdentifier: MyString
+  testMethod: MyString
+  testProcedure: MyString
+  plannedTestDate: 2011-04-28
+  scheduledTestYear: MyString
+  actualTestDate: 2011-04-28
+  testResult: MyString
+  testResultDescription: MyText
+  assessorName: MyString
+  cAndADoc: MyString
+  controlReference: MyString
+
+two:
+  enclave: 
+  enclaveYear: 
+  controlID: 
+  SSPImplementationStatus: MyString
+  SSPImplementationDescription: MyText
+  implementingDocumentationOrArticfacts: MyString
+  deviationIdentifier: MyString
+  testMethod: MyString
+  testProcedure: MyString
+  plannedTestDate: 2011-04-28
+  scheduledTestYear: MyString
+  actualTestDate: 2011-04-28
+  testResult: MyString
+  testResultDescription: MyText
+  assessorName: MyString
+  cAndADoc: MyString
+  controlReference: MyString

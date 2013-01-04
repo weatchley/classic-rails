@@ -1,0 +1,7 @@
+<h1><u>Control Family</u>&nbsp;&nbsp;</h1>
+<% @contrFams.each do |cf| %>
+    <table border=0 class=none><tr><td vailign=top>
+    <input type=radio name=confam value="<%= cf.controlFamilyCode %>"<%= ((@cfam==cf.controlFamilyCode) ? " checked" : "") %> id="<%= cf.controlFamilyCode %>" onclick=window.location.href="/dashboard/show/<%= cf.controlFamilyCode %>">
+    </td><td><label for="<%= cf.controlFamilyCode %>"><%= cf.controlFamilyCode %>: <%= cf.controlName %></label></td></tr></table>
+<% end %>
+

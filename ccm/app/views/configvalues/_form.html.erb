@@ -1,0 +1,33 @@
+<%= form_for(@configvalue) do |f| %>
+  <% if @configvalue.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@configvalue.errors.count, "error") %> prohibited this configvalue from being saved:</h2>
+
+      <ul>
+      <% @configvalue.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :Name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :StringValue %><br />
+    <%= f.text_field :value %>
+  </div>
+  <div class="field">
+    <%= f.label :IntValue %><br />
+    <%= f.text_field :ivalue %>
+  </div>
+  <div class="field">
+    <%= f.label :DateValue %><br />
+    <%= f.date_select :dvalue, :include_blank => true %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

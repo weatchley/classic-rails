@@ -1,0 +1,15 @@
+<% if @cid != "0" %>
+  <!--h1><u>Enclave/Control/Quarter</u></h1-->
+  <input type=hidden name=ecid value="<%= @ecqid %>">
+  <select name=encntr size=4 ONCHANGE="selectEnclaveControl(this.options[this.selectedIndex].value);">
+  <% @enControls.each do |ec| %>
+      <option value="<%= ec.id %>"<%= ((@ecqid.to_i==ec.id) ? " SELECTED " : "") %> ><%= ec.enclave.Name %> - <%= ec.enclavequarter.quarterName %> Qtr / <%= ec.enclavequarter.enclaveYear %></option>
+  <% end %>
+  </select>
+  <script type='text/javascript'>
+
+  function selectEnclaveControl(id) {
+      window.location.href="/dashboard/show/<%= @cfam %>/<%= @cid %>/" + id;
+  }
+  </script>
+<% end %>

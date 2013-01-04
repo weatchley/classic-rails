@@ -1,0 +1,77 @@
+<%= form_for(@cybercontrol) do |f| %>
+  <% if @cybercontrol.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@cybercontrol.errors.count, "error") %> prohibited this cybercontrol from being saved:</h2>
+
+      <ul>
+      <% @cybercontrol.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :originalID %><br />
+    <%= f.text_field :originalID %>
+  </div>
+  <div class="field">
+    <%= f.label :Revision %><br />
+    <%= f.text_field :Revision %>
+  </div>
+  <div class="field">
+    <%= f.label :controlNumber %><br />
+    <%= f.text_field :controlNumber %>
+  </div>
+  <div class="field">
+    <%= f.label :parentControlKey %><br />
+    <%= f.text_field :parentControlKey %>
+  </div>
+  <div class="field">
+    <%= f.label :controlFamilyCode %><br />
+    <%= f.text_field :controlFamilyCode %>
+  </div>
+  <div class="field">
+    <%= f.label :controlName %><br />
+    <%= f.text_field :controlName %>
+  </div>
+  <div class="field">
+    <%= f.label :controlType %><br />
+    <%= f.text_field :controlType %>
+  </div>
+  <div class="field">
+    <%= f.label :enhancement %><br />
+    <%= f.text_field :enhancement %>
+  </div>
+  <div class="field">
+    <%= f.label :controlDescription %><br />
+    <%= f.text_area :controlDescription %>
+  </div>
+  <div class="field">
+    <%= f.label :impactLevel %><br />
+    <%= f.text_field :impactLevel %>
+  </div>
+  <div class="field">
+    <%= f.label :criticalControl %><br />
+    <%= f.check_box :criticalControl %>
+  </div>
+  <div class="field">
+    <%= f.label :guidance %><br />
+    <%= f.text_area :guidance %>
+  </div>
+  <div class="field">
+    <%= f.label :quarterly %><br />
+    <%= f.check_box :quarterly %>
+  </div>
+  <div class="field">
+    <%= f.label :priority %><br />
+    <%= f.text_field :priority %>
+  </div>
+  <div class="field">
+    <%= f.label :withdrawn %><br />
+    <%= f.check_box :withdrawn %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

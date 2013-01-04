@@ -1,0 +1,101 @@
+<%= form_for(@enclavecontrol) do |f| %>
+  <% if @enclavecontrol.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@enclavecontrol.errors.count, "error") %> prohibited this enclavecontrol from being saved:</h2>
+
+      <ul>
+      <% @enclavecontrol.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div><br />
+    Enclave: <%= @enclavecontrol.enclave.Name %> &nbsp; &nbsp; Year/Quarter: <%= @enclavecontrol.enclavequarter.enclaveYear %>/<%= @enclavecontrol.enclavequarter.enclaveQuarter %> &nbsp; &nbsp; 
+    Control: <%= @enclavecontrol.cybercontrol.controlNameNumber %><br />
+    <div class="field">
+      <br /><%= f.label :SSPImplementationDescription, "SSP Implementation Description" %><br />
+      <%= f.text_area :SSPImplementationDescription, :size =>"100x6" %>
+    </div>
+    <div class="field">
+      <br /><%= f.label :testResultDescription, "Test Result Description" %><br />
+      <%= f.text_area :testResultDescription, :size =>"100x6" %>
+    </div>
+  
+  </div>
+  
+  <div class="yui-gb">
+    <div class="yui-u first">
+      <div class="field">
+        <br /><%= f.label :RMF, "RMF" %>
+        <%= f.check_box :RMF %>
+      </div>
+      <div class="field">
+        <%= f.label :SSPImplementationStatus, "SSP Implementation Status" %><br />
+        <%= f.select :SSPImplementationStatus, @implementationstatus, {:include_blank => true}, :selected => @enclavecontrol.SSPImplementationStatus %>
+      </div>
+      <div class="field">
+        <%= f.label :implementingDocumentationOrArticfacts, "Implementing Documentation Or Articfacts" %><br />
+        <%= f.text_field :implementingDocumentationOrArticfacts %>
+      </div>
+      <div class="field">
+        <%= f.label :deviationIdentifier, "Deviation Identifier" %><br />
+        <%= f.text_field :deviationIdentifier %>
+      </div>
+      <div class="field">
+        <%= f.label :testMethod, "Test Method" %><br />
+        <%= f.select :testMethod, @testmethods, {:include_blank => true}, :selected => @enclavecontrol.testMethod %>
+      </div>
+    </div>
+    <div class="yui-u">
+      <div class="field">
+        <br /><%= f.label :testProcedure, "Test Procedure" %><br />
+        <%= f.text_field :testProcedure %>
+      </div>
+      <div class="field">
+        <%= f.label :plannedTestDate, "Planned Test Date" %><br />
+        <%= f.date_select :plannedTestDate, :include_blank => true %>
+      </div>
+      <div class="field">
+        <%= f.label :scheduledTestYear, "Scheduled Test Year" %><br />
+        <%= f.text_field :scheduledTestYear %>
+      </div>
+      <div class="field">
+        <%= f.label :actualTestDate, "Actual Test Date" %><br />
+        <%= f.date_select :actualTestDate, :include_blank => true %>
+      </div>
+    </div>
+    <div class="yui-u">
+      <div class="field">
+        <br /><%= f.label :testResult, "Test Result" %><br />
+        <%= f.select :testResult, @testresults, {:include_blank => true}, :selected => @enclavecontrol.testResult %>
+      </div>
+      <div class="field">
+        <%= f.label :assessorName, "Assessor Name" %><br />
+        <%= f.text_field :assessorName %>
+      </div>
+      <div class="field">
+        <%= f.label :cAndADoc, "C And A Doc" %><br />
+        <%= f.text_field :cAndADoc %>
+      </div>
+      <div class="field">
+        <%= f.label :controlReference, "Control Reference" %><br />
+        <%= f.text_field :controlReference %>
+      </div>
+      <!--div class="field"-->
+        <!--%= f.label :enclavequarter_id %><br /-->
+        <!--%= f.text_field :enclavequarter_id %-->
+      <!--/div-->
+      <div class="field">
+        <br />Apply To All Enclaves
+        <input type=hidden name=applytoall value="0">
+        <input type=checkbox name=applytoall value="1">
+      </div>
+    </div>
+  </div>
+  <div class="actions" align=center>
+    <br />
+    <%= f.submit %>
+  </div>
+<% end %>

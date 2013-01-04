@@ -1,0 +1,36 @@
+<h1>Listing cybercontrols</h1>
+
+<table>
+  <tr>
+    <th>Control/<br>Revision</th>
+    <th>Parent</th>
+    <th>Name</th>
+    <th>Type</th>
+    <th>Enhancement</th>
+    <th>Description</th>
+    <th>Impactlevel</th>
+    <th>Crit</th>
+    <th></th>
+  </tr>
+
+<% @cybercontrols.each do |cybercontrol| %>
+  <tr valign=top>
+    <td><%= cybercontrol.cName %><br>
+    <%= cybercontrol.Revision %></td>
+    <td><%= cybercontrol.parentControlKey %></td>
+    <td><%= cybercontrol.controlName %></td>
+    <td><%= cybercontrol.controlType %></td>
+    <td><%= cybercontrol.enhancement %></td>
+    <td><%= cybercontrol.controlDescription %></td>
+    <td><%= cybercontrol.impactLevel %></td>
+    <td><%= cybercontrol.criticalControl %></td>
+    <td align=center><%= link_to 'Show', cybercontrol %><br>
+    <%= link_to 'Edit', edit_cybercontrol_path(cybercontrol) %><br>
+    <%= link_to 'Destroy', cybercontrol, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Cybercontrol', new_cybercontrol_path %>

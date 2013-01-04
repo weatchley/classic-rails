@@ -1,0 +1,70 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Email:</b>
+  <%= @person.email %>
+</p>
+
+<p>
+  <b>Encrypted password:</b>
+  <%= @person.encrypted_password %>
+</p>
+
+<p>
+  <b>Reset password token:</b>
+  <%= @person.reset_password_token %>
+</p>
+
+<p>
+  <b>Reset password sent at:</b>
+  <%= @person.reset_password_sent_at %>
+</p>
+
+<p>
+  <b>Remember created at:</b>
+  <%= @person.remember_created_at %>
+</p>
+
+<p>
+  <b>Sign in count:</b>
+  <%= @person.sign_in_count %>
+</p>
+
+<p>
+  <b>Current sign in at:</b>
+  <%= @person.current_sign_in_at %>
+</p>
+
+<p>
+  <b>Last sign in at:</b>
+  <%= @person.last_sign_in_at %>
+</p>
+
+<p>
+  <b>Current sign in ip:</b>
+  <%= @person.current_sign_in_ip %>
+</p>
+
+<p>
+  <b>Last sign in ip:</b>
+  <%= @person.last_sign_in_ip %>
+</p>
+
+<p>
+  <b>Group:</b>
+  <%= @person.group_name %>
+</p>
+
+<p>
+  <b>Created at:</b>
+  <%= @person.created_at %>
+</p>
+
+<p>
+  <b>Updated at:</b>
+  <%= @person.updated_at %>
+</p>
+
+
+<%= link_to 'Edit', edit_person_path(@person) %> |
+<%= link_to 'Back', people_path %>

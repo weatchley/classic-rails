@@ -1,0 +1,11 @@
+<% if @cid != "0" %>
+  <br><hr>
+  <!--h1><u>Control </u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h1-->
+  <%= @cc.controlNameNumber %> - <%= @cc.controlFamilyName %><%= ((@cc.enhancement != nil) ? " - Enhancement #{@cc.enhancement}" : "") %><br><br>
+  <strong>Type:</strong> <%= @cc.controlType %>, <strong>Level:</strong> <%= @cc.impactLevel %>, This is <%= ((@cc.criticalControl) ? "" : "Not ") %>a Critical Control<br><br>
+  <strong>Quarterly:</strong> <%= ((@cc.quarterly) ? "True" : "False") %>, <strong>Withdrawn:</strong> <%= ((@cc.withdrawn) ? "True" : "False") %>, <strong>Priority:</strong><%= @cc.priority %><br><br>
+  <strong>Description:</strong> <br>
+  <%= raw colapsestring("ccfirst", @cc.controlDescription.gsub(/\n/,"<br>\n"), 200, false, true) %><br><br>
+  <strong>Guidance:</strong> <br>
+  <%= raw ((@cc.guidance != nil) ? colapsestring("ccsecond", @cc.guidance.gsub(/\n/,"<br>\n"), 200, false, true) : "") %><br><br>
+<% end %>

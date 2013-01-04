@@ -1,0 +1,5 @@
+%h1 %u Control Family  
+@contrFams.each do |cf|
+  %label{:for => cf.controlFamilyCode}
+  %input{:type => :radio, :name => :confam, :value => cf.controlFamilyCode, :checked => @cfam==cf.controlFamilyCode, :id => cf.controlFamilyCode, :onclick => "window.location.href='/dashboard/show/#cf.controlFamilyCode'"} cf.controlFamilyCode : cf.controlName
+

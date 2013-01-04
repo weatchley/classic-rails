@@ -1,0 +1,29 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  originalID: 
+  Revision: MyString
+  controlNumber: 
+  parentControlKey: 
+  controlFamilyCode: MyString
+  controlName: MyString
+  controlType: MyString
+  enhancement: 
+  controlDescription: MyText
+  impactLevel: MyString
+  criticalControl: MyString
+  RMF: MyString
+
+two:
+  originalID: 
+  Revision: MyString
+  controlNumber: 
+  parentControlKey: 
+  controlFamilyCode: MyString
+  controlName: MyString
+  controlType: MyString
+  enhancement: 
+  controlDescription: MyText
+  impactLevel: MyString
+  criticalControl: MyString
+  RMF: MyString

@@ -1,0 +1,96 @@
+<%= form_for(@enclavecontrol) do |f| %>
+  <% if @enclavecontrol.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@enclavecontrol.errors.count, "error") %> prohibited this enclavecontrol from being saved:</h2>
+
+      <ul>
+      <% @enclavecontrol.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :enclave_id %><br />
+    <!--%= f.text_field :enclave_id %--><%= @enclavecontrol.enclave.Name %>
+  </div>
+  <div class="field">
+    <%= f.label :enclaveYear %><br />
+    <!--%= f.text_field :enclaveYear %--><%= @enclavecontrol.enclaveYear %>
+  </div>
+  <div class="field">
+    <%= f.label :cybercontrol_id %><br />
+    <!--%= f.text_field :cybercontrol_id %--><%= @enclavecontrol.cybercontrol.controlNameNumber %>
+  </div>
+  <div class="field">
+    <%= f.label :RMF %><br />
+    <%= f.check_box :RMF %>
+  </div>
+  <div class="field">
+    <%= f.label :SSPImplementationStatus %><br />
+    <!--%= f.text_field :SSPImplementationStatus %-->
+    <%= collection_select(f, :SSPImplementationStatus, @implementationstatus, :name, :name, {:include_blank => true, :selected => @enclavecontrol.SSPImplementationStatus}) %>
+  </div>
+  <div class="field">
+    <%= f.label :SSPImplementationDescription %><br />
+    <%= f.text_area :SSPImplementationDescription %>
+  </div>
+  <div class="field">
+    <%= f.label :implementingDocumentationOrArticfacts %><br />
+    <%= f.text_field :implementingDocumentationOrArticfacts %>
+  </div>
+  <div class="field">
+    <%= f.label :deviationIdentifier %><br />
+    <%= f.text_field :deviationIdentifier %>
+  </div>
+  <div class="field">
+    <%= f.label :testMethod %><br />
+    <!--%= f.text_field :testMethod %-->
+    <%= collection_select(f, :testMethod, @testmethods, :name, :name, {:include_blank => true, :selected => @enclavecontrol.testMethod}) %>
+  </div>
+  <div class="field">
+    <%= f.label :testProcedure %><br />
+    <%= f.text_field :testProcedure %>
+  </div>
+  <div class="field">
+    <%= f.label :plannedTestDate %><br />
+    <%= f.date_select :plannedTestDate, :include_blank => true %>
+  </div>
+  <div class="field">
+    <%= f.label :scheduledTestYear %><br />
+    <%= f.text_field :scheduledTestYear %>
+  </div>
+  <div class="field">
+    <%= f.label :actualTestDate %><br />
+    <%= f.date_select :actualTestDate, :include_blank => true %>
+  </div>
+  <div class="field">
+    <%= f.label :testResult %><br />
+    <!--%= f.text_field :testResult %-->
+    <%= collection_select(f, :testResult, @testresults, :name, :name, {:include_blank => true, :selected => @enclavecontrol.testResult}) %>
+  </div>
+  <div class="field">
+    <%= f.label :testResultDescription %><br />
+    <%= f.text_area :testResultDescription %>
+  </div>
+  <div class="field">
+    <%= f.label :assessorName %><br />
+    <%= f.text_field :assessorName %>
+  </div>
+  <div class="field">
+    <%= f.label :cAndADoc %><br />
+    <%= f.text_field :cAndADoc %>
+  </div>
+  <div class="field">
+    <%= f.label :controlReference %><br />
+    <%= f.text_field :controlReference %>
+  </div>
+  <div class="field">
+    <%= f.label :enclavequarter_id %><br />
+    <%= f.text_field :enclavequarter_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

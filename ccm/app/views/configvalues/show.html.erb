@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @configvalue.name %>
+</p>
+
+<p>
+  <b>String Value:</b>
+  <%= @configvalue.value %>
+</p>
+
+<p>
+  <b>Int Value:</b>
+  <%= @configvalue.ivalue %>
+</p>
+
+<p>
+  <b>Date Value:</b>
+  <%= @configvalue.dvalue %>
+</p>
+
+<p>
+  <b>Created at:</b>
+  <%= @configvalue.created_at %>
+</p>
+
+<p>
+  <b>Updated at:</b>
+  <%= @configvalue.updated_at %>
+</p>
+
+
+<%= link_to 'Edit', edit_configvalue_path(@configvalue) %> |
+<%= link_to 'Back', configvalues_path %>

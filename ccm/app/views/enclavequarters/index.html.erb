@@ -1,0 +1,31 @@
+<h1>Listing enclavequarters</h1>
+
+<table>
+  <tr>
+    <th>Enclave</th>
+    <th>Enclavequarter</th>
+    <th>Enclaveyear</th>
+    <th>Created at</th>
+    <th>Updated at</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @enclavequarters.each do |enclavequarter| %>
+  <tr>
+    <td><%= enclavequarter.enclave.Name %></td>
+    <td><%= enclavequarter.enclaveQuarter %></td>
+    <td><%= enclavequarter.enclaveYear %></td>
+    <td><%= enclavequarter.created_at %></td>
+    <td><%= enclavequarter.updated_at %></td>
+    <td><%= link_to 'Show', enclavequarter %></td>
+    <td><%= link_to 'Edit', edit_enclavequarter_path(enclavequarter) %></td>
+    <td><%= link_to 'Destroy', enclavequarter, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<!--%= link_to 'New Enclavequarter', new_enclavequarter_path %-->

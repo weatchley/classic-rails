@@ -1,0 +1,30 @@
+<%= form_for(@enclavequarter) do |f| %>
+  <% if @enclavequarter.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@enclavequarter.errors.count, "error") %> prohibited this enclavequarter from being saved:</h2>
+
+      <ul>
+      <% @enclavequarter.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :enclave_id %><br />
+    <!--%= f.text_field :enclave_id %-->
+    <%= f.collection_select(:enclave_id, Enclave.all, :id, :Name, {:include_blank => true, :selected => @enclavequarter.enclave_id}) %>
+  </div>
+  <div class="field">
+    <%= f.label :enclaveQuarter %><br />
+    <%= f.text_field :enclaveQuarter %>
+  </div>
+  <div class="field">
+    <%= f.label :enclaveYear %><br />
+    <%= f.text_field :enclaveYear %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

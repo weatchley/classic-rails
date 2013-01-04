@@ -1,0 +1,33 @@
+<h1>Listing enclaves</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Long name</th>
+    <th>Sort order</th>
+    <th>Active</th>
+    <th>Created at</th>
+    <th>Updated at</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @enclaves.each do |enclave| %>
+  <tr>
+    <td><%= enclave.Name %></td>
+    <td><%= enclave.long_name %></td>
+    <td><%= enclave.sort_order %></td>
+    <td><%= enclave.active %></td>
+    <td><%= enclave.created_at %></td>
+    <td><%= enclave.updated_at %></td>
+    <td><%= link_to 'Show', enclave %></td>
+    <td><%= link_to 'Edit', edit_enclave_path(enclave) %></td>
+    <td><%= (button_to 'Destroy', enclave, :confirm => 'Are you sure?', :method => :delete ) if (!enclave.inUse) %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Enclave', new_enclave_path %>

@@ -1,0 +1,13 @@
+<!--h1><u>Control Id</u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h1-->
+<input type=hidden name=ctrlid value="<%= @cid %>">
+<select name=contrid size=10 ONCHANGE="selectControl(this.options[this.selectedIndex].value);">
+<% @contrls.each do |ctr| %>
+    <option value="<%= ctr.id %>"<%= ((@cid.to_i==ctr.id) ? " SELECTED " : "") %> title="<%= ctr.controlFamilyName %>"><%= ctr.controlNameNumber %><%= ((ctr.criticalControl==1 || ctr.criticalControl==true) ? "*" : "") %></option>
+<% end %>
+</select>
+<script type='text/javascript'>
+
+function selectControl(id) {
+    window.location.href="/dashboard/show/<%= @cfam %>/" + id;
+}
+</script>

@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  enclave_id: 
+  enclaveQuarter: 
+  enclaveYear: 
+  created_at: 2011-05-09 10:33:56
+  updated_at: 2011-05-09 10:33:56
+
+two:
+  enclave_id: 
+  enclaveQuarter: 
+  enclaveYear: 
+  created_at: 2011-05-09 10:33:56
+  updated_at: 2011-05-09 10:33:56

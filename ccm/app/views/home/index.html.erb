@@ -1,0 +1,52 @@
+<h1>Home#index</h1>
+<a href=/cybercontrols/>Cyber Controls</a><br>
+<a href=/enclavecontrols/>EnclaveControls</a><br>
+<a href=/enclavequarters/>EnclaveQuarters</a><br>
+<a href=/enclaves/>Enclaves</a><br><br>
+
+<%
+    #Metric.initialize
+    m = Metric.new
+    conf = Configvalue.where(:name => :atodate).first
+    ato = conf.dvalue
+%>
+Tests...<br>
+ATO Date: <%= ato %><br>
+ATO Date: <%= m.atoDate %><br>
+CAG Tested: <%= m.cagtested %><br>
+ATO Year: <%= m.atoYear %><br>
+ATO Test: <%= "#{m.atoDate.year}-#{m.atoDate.month}-#{m.atoDate.day}" %><br>
+PWD: <%= FileUtils.pwd() %><br>
+<% # FileUtils.cd("#{FileUtils.pwd()}/upload") %>
+<% files = Dir.glob("#{FileUtils.pwd()}/upload/*") %>
+<%= files %><br>
+<%
+temp = "AC-2"
+tempList = temp.split(/-/)
+test = "(4444)"
+test2 = test.gsub(/\(/,"")
+test2 = test2.gsub(/\)/, "")
+fileName = "C:/ror/ccm/upload/LMGSS_SecurityControlsSTEv2e.xls"
+#fileStart= fileName =~ /\/[0-9A-Za-z\.\%\_ ]*$/
+fileStart= fileName =~ /\/[\w\s\%\.]*$/
+fileStart += 1
+fileName2 = fileName[fileStart..fileName.length]
+
+sqlcode = "controlFamilyCode='" + test + "' AND controlNumber=" + test + ((test != nil) ? " AND enhancement=" + test : "")
+
+
+%>
+<%= "#{tempList[0]} - #{tempList[1]}" %><br>
+<%= (test =~ /^\([0-9]*\)$/) %><br>
+<%= test2 %><br>
+<%= (fileName =~ /\/[0-9A-Za-z\.\%\_]*$/) %><br>
+<%= fileName2 %><br>
+<%= sqlcode %><br>
+
+<% testString = "1234567890abcdefghijklmnopqrstuvwxyz 1234567890abcdefghijklmnopqrstuvwxyz 1234567890abcdefghijklmnopqrstuvwxyz 1234567890abcdefghijklmnopqrstuvwxyz 1234567890abcdefghijklmnopqrstuvwxyz" %>
+
+<%= raw colapsestring("first", testString, 80, false, false) %><br>
+<%= raw colapsestring("first", testString, 800, false, true) %><br>
+
+CAG Month: <%= m.cagcyclemonth %>, MAB Month: <%= m.mabcyclemonth %><br>
+
